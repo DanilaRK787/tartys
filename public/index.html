@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d2b24">
+  <meta name="description" content="TARTYS — браузерное перетягивание каната: выносливость, рывок в нужный момент, бот с тремя характерами, онлайн-комнаты 1×1 и 2×2.">
+  <meta property="og:title" content="TARTYS — перетягивание каната">
+  <meta property="og:description" content="Тяни. Отпусти. Дёрни в нужный момент. Вызови друга по ссылке.">
+  <title>TARTYS — перетягивание каната</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e0603f'/%3E%3Cpath d='M8 36h48' stroke='%23fff4dc' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='36' r='7' fill='%23c8322b' stroke='%23fff4dc' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=DM+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+  <main id="view"></main>
+  <footer class="site-footer"><span id="foot"></span></footer>
+  <noscript>TARTYS needs JavaScript.</noscript>
+  <script>
+    // Opened as a file (double-click on index.html)? The game needs its server.
+    if (location.protocol === 'file:') document.addEventListener('DOMContentLoaded', function () {
+      document.body.innerHTML = '<div style="max-width:560px;margin:60px auto;padding:24px;font:16px/1.5 system-ui;background:#fffdf7;border:2px solid #e0603f;border-radius:14px">' +
+        '<h2 style="margin-top:0">TARTYS нужно запускать через сервер</h2><p>Файл index.html открыт напрямую, поэтому игра, вход и онлайн не работают.</p>' +
+        '<ol><li>Открой терминал в папке <b>tartys</b></li><li>Выполни <code>npm install</code>, затем <code>npm start</code></li><li>Открой в браузере <b>http://localhost:3000</b></li></ol></div>';
+    });
+    // Server health check in a plain script, so it works even if the game modules fail to load.
+    else fetch('/api/health').then(function (r) { if (!r.ok) throw 0; return r.json(); }).catch(function () {
+      var bar = document.createElement('div'); bar.className = 'server-warning';
+      bar.innerHTML = 'Сервер игры не отвечает (' + location.host + '). Вход, профиль и онлайн не работают. Запусти проект командой <b>npm start</b> и открой <b>http://localhost:3000</b>. Если это сайт на Render — подожди минуту, он просыпается, и обнови страницу.';
+      document.body.prepend(bar);
+    });
+  </script>
+  <script src="/socket.io/socket.io.min.js"></script>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
