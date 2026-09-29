@@ -1,6 +1,7 @@
 # TARTYS — перетягивание каната, где решает момент
 
-> **Играть:** https://ВАШ-АДРЕС.onrender.com  ·  **Тестовый доступ:** `demo / tartys2026` и `demo2 / tartys2026`
+> **Играть:** https://tartys.onrender.com/ ·  **Тестовый доступ:** `demo / tartys2026` и `demo2 / tartys2026` 
+  **Регистрация:** Регистрация так же доступна. Можно создать и зайти под своим профилем
 >
 > **Автор:** Danila Afanasyev · **Контакт:** [danila.afanasev@narhoz.kz](mailto:danila.afanasev@narhoz.kz)
 >
